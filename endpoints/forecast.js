@@ -2,6 +2,17 @@ const request = require("request-promise");
 
 const API_URL = `https://api.darksky.net/forecast/${process.env.API_KEY}`;
 
+const getResponseHeaders = request => {
+  
+  
+  const headers = {
+    "content-type": "application/json"
+  };
+  //const origin = request.headers.origin;
+  //headers["Access-Control-Allow-Origin"] = origin;
+  headers["Access-Control-Allow-Origin"] = '*';
+  return headers;
+
 exports.handler = (event, context, callback) => {
   const qs = event.queryStringParameters;
   const { lat, lon } = qs;
