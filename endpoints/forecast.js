@@ -2,7 +2,7 @@ const request = require("request-promise");
 
 const API_URL = `https://api.darksky.net/forecast/${process.env.API_KEY}`;
 
-let { CORS_WHITELIST } = process.env.CORS_WHITELIST;
+let CORS_WHITELIST = process.env.CORS_WHITELIST;
 if (CORS_WHITELIST) {
   CORS_WHITELIST = CORS_WHITELIST.replace(/ /g, "").split(",");
 }
@@ -11,7 +11,7 @@ const getResponseHeaders = request => {
   const headers = {
     "content-type": "application/json"
   };
-  const { origin } = request.headers;
+  const origin = request.headers.origin;
   if (origin && (!CORS_WHITELIST || CORS_WHITELIST.includes(origin))) {
     headers["Access-Control-Allow-Origin"] = origin;
   }
