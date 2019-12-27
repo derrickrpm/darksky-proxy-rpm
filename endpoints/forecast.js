@@ -1,4 +1,4 @@
-onst request = require("request-promise");
+const request = require("request-promise");
 
 const API_URL = `https://api.darksky.net/forecast/${process.env.API_KEY}`;
 
