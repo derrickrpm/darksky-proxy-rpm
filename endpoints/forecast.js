@@ -2,7 +2,7 @@ const request = require("request-promise");
 
 const API_URL = `https://api.darksky.net/forecast/${process.env.API_KEY}`;
 
-let { CORS_WHITELIST } = process.env;
+let { CORS_WHITELIST } = process.env.CORS_WHITELIST;
 if (CORS_WHITELIST) {
   CORS_WHITELIST = CORS_WHITELIST.replace(/ /g, "").split(",");
 }
