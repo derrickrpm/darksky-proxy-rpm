@@ -27,7 +27,7 @@ exports.handler = (event, context, callback) => {
     return;
   }
 
-  const url = `${API_URL}/${lat},${lon}`;
+  const url = `${API_URL}/${lat},${lon}?exclude=currently,minutely,hourly,alerts,flags`;
   // Remove lat and lon parameters, they go in the URL
   delete qs.lat;
   delete qs.lon;
